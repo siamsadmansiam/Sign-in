@@ -1,79 +1,71 @@
-#include<stdio.h>
+#include <stdio.h>
+
+struct std
+{
+    int ID;
+    char name[50];
+    float CGPA;
+};
+
+void displayMeritPosition(struct std students[], int numStudents,int idStudents)
+{
+
+    printf("Displaying merit positions...\n");
+    printf("\n");
+
+
+    for (int i = 0; i < numStudents - 1; i++)
+    {
+        for (int j = 0; j < numStudents - i - 1; j++)
+        {
+            if (students[j].CGPA < students[j + 1].CGPA)
+            {
+                struct std temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Merit Position\tName\t\tID\t\tCGPA\n");
+    printf("\n");
+    for (int i = 0; i < numStudents; i++)
+    {
+        if(students[i].CGPA>4.00)
+        {
+            printf("invalid input\n");
+        }
+        else
+        {
+            printf("%d\t\t%s\t\t%d\t\t%.2f\n", i + 1, students[i].name,students[i].ID, students[i].CGPA);
+        }
+    }
+}
 
 int main()
 {
-
-
-    printf("                                          **********************\n");
-    printf("                                          *  Result Generator  *\n");
-    printf("                                          **********************\n");
-    printf("                        ------------------------------------------------------------\n");
-    printf("                        |  1.Show the marks against all subjects       [Press-1]    |\n");
-    printf("                        |  2.Show the students ID and the grade        [Press-2]    |\n");
-    printf("                        |  3.Show all merit position                   [Press-3]    |\n");
-    printf("                        |  4.Show how much students got which grade    [Press-4]    |\n");
-    printf("                        |                                                           |\n");
-    printf("                        ------------------------------------------------------------\n");
-    int press;
-presss:
-    printf("Enter your input: ");
-    scanf("%d",&press);
+    int ID;
+    int n;
+    printf("Number of student: ");
+    scanf("%d",&n);
     printf("\n");
+    struct std students[n];
 
-    double Name,ID,Greade,CGPA;
 
-
-    if(press==3)
+    for (int i = 0; i <n; i++)
     {
-        printf("_______________________________________________\n");
-        printf("|    Name   |   ID    |     Greade   |  CGPA  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Shaon     |  1028   |      A+      |  4.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Nabil     |  1111   |      A+      |  4.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Mahir     |  1839   |      A+      |  4.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Rahad     |  1492   |      A       |  3.75  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Nayeem    |  1294   |      A       |  3.75  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Mubarak   |  1027   |      A       |  3.75  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Muntasir  |  1382   |      A       |  3.75  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Nibir     |  1328   |      A-      |  3.50  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Joy       |  1234   |      A-      |  3.50  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Tonmoy    |  1345   |      A-      |  3.50  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Siam      |  1934   |      A-      |  3.50  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Anik      |  1245   |      A-      |  3.50  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Apu       |  1429   |      B+      |  3.25  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Bappi     |  1132   |      B+      |  3.25  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Bijoy     |  1154   |      B+      |  3.25  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Dipon     |  1174   |      B+      |  3.25  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Ridoy     |  2091   |      B       |  3.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Kamal     |  1029   |      B       |  3.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Kashem    |  1212   |      B       |  3.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Meer      |  1211   |      B-      |  2.75  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Nihar     |  1223   |      C       |  2.25  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Omor      |  1274   |      D       |  2.00  |\n");
-        printf("|-----------|---------|--------------|--------|\n");
-        printf("| Partho    |  1283   |      F       |  0.00  |\n");
-        printf("|___________|_________|______________|________|\n");
-
+        printf("Enter details for student %d:\n", i + 1);
+        printf("Name: ");
+        scanf("%s", students[i].name);
+        printf("ID: ");
+        scanf("%d", &students[i].ID);
+        printf("CGPA: ");
+        scanf("%f", &students[i].CGPA);
+        printf("\n");
     }
+
+
+    displayMeritPosition(students, n,ID);
+
+    return 0;
 }
