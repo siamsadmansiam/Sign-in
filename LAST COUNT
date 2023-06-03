@@ -1,0 +1,80 @@
+ int grades[] = {80,80,80,80,80,80,75,75,75,75,75,70,70,70,69,64,59,54,49,33};
+            int numStudents = sizeof(grades) / sizeof(grades[0]);
+
+            int gradeCount[10] = {0}; // Initialize the count array with zeros
+
+            // Count the number of students for each grade
+            for (int i = 0; i < numStudents; i++)
+            {
+                if (grades[i] >= 80)
+                {
+                    gradeCount[0]++; // A+
+                }
+                else if (grades[i] >= 75 && grades[i] <=79)
+                {
+                    gradeCount[1]++; // A
+                }
+                else if (grades[i] >= 70 && grades[i] <=74)
+                {
+                    gradeCount[2]++; // A-}
+                }
+                else if (grades[i] >= 65 && grades[i] <=69)
+                {
+                    gradeCount[3]++; // B+
+                }
+                else if (grades[i] >= 60 && grades[i] <=64)
+                {
+                    gradeCount[4]++; // B
+                }
+                else if (grades[i] >= 55 && grades[i] <=59)
+                {
+                    gradeCount[5]++; // B-
+                }
+                else if (grades[i] >= 50 && grades[i]<=54)
+                {
+                    gradeCount[6]++; // C+
+                }
+                else if (grades[i] >= 45 && grades[i] <=49)
+                {
+                    gradeCount[7]++; // C}
+                }
+                else if (grades[i] >= 40 && grades[i] <=44)
+                {
+                    gradeCount[8]++; //D
+                }
+                else
+                {
+                    gradeCount[9]++; // F
+                }
+
+            }
+            printf("\n");
+            printf("\n");
+            printf("\n");
+
+            printf(" --------------------\n");
+            printf("|  GRADE   |  COUNT  |\n");
+            printf("|----------|---------|\n");
+            printf("|    A+    |    %d    |\n", gradeCount[0]);
+            printf("|----------|---------|\n");
+            printf("|    A     |    %d    |\n", gradeCount[1]);
+            printf("|----------|---------|\n");
+            printf("|    A-    |    %d    |\n", gradeCount[2]);
+            printf("|----------|---------|\n");
+            printf("|    B+    |    %d    |\n", gradeCount[3]);
+            printf("|----------|---------|\n");
+            printf("|    B     |    %d    |\n", gradeCount[4]);
+            printf("|----------|---------|\n");
+            printf("|    B-    |    %d    |\n", gradeCount[5]);
+            printf("|----------|---------|\n");
+            printf("|    C+    |    %d    |\n", gradeCount[6]);
+            printf("|----------|---------|\n");
+            printf("|    C     |    %d    |\n", gradeCount[7]);
+            printf("|----------|---------|\n");
+            printf("|    D     |    %d    |\n", gradeCount[8]);
+            printf("|----------|---------|\n");
+            printf("|    F     |    %d    |\n", gradeCount[9]);
+            printf("|--------------------|\n");
+
+            printf("\n");
+            printf("\n");
